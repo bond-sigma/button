@@ -1,0 +1,125 @@
+
+$buttonBg:      #f0f0f0;
+$buttonColor:   #333333;
+$buttonBorderColor: #b4b4b4;
+
+$buttonHoverBg: darken($buttonBg, 5%);
+$buttonHoverColor: darken($buttonColor, 5%);
+$buttonHoverBorderColor: darken($buttonBorderColor, 5%);
+
+$buttonFocusBg: $buttonBg;
+$buttonFocusColor: $buttonColor;
+$buttonFocusBorderColor: darken($buttonBorderColor, 5%);
+
+$buttonActiveBg: darken($buttonBg, 10%);
+$buttonActiveColor: darken($buttonColor, 10%);
+$buttonActiveBorderColor: darken($buttonBorderColor, 10%);
+
+$buttonDisabledBg: $buttonBg;
+$buttonDisabledColor: #aaaaaa;
+$buttonDisabledBorderColor: lighten($buttonBorderColor, 5%);
+
+
+.button,
+button.button,
+input[type="reset"].button,
+input[type="button"].button,
+input[type="submit"].button,
+a.button,
+a.button:link
+{
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+
+	padding: 2px 6px;
+
+	font-family: 'Segoe UI', 'Open Sans', 'Lucida Grande', Helvetica, sans-serif;
+	font-size: 100%;
+	text-decoration: none;
+
+	cursor: pointer;
+
+	color: $buttonColor;
+	background: $buttonBg;
+	border: 1px solid $buttonBorderColor;
+
+	-webkit-font-smoothing: subpixel-antialiased;
+
+	-moz-binding: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+
+	overflow: visible;
+	position: relative;
+
+
+	&:focus {
+		outline: none;
+		background: $buttonFocusBg;
+		color: $buttonFocusColor;
+		border-color: $buttonFocusBorderColor;
+	}
+	&:hover {
+		background: $buttonHoverBg;
+		color: $buttonHoverColor;
+		border-color: $buttonHoverBorderColor;
+	}
+	&:active {
+		background: $buttonActiveBg;
+		color: $buttonActiveColor;
+		border-color: $buttonActiveBorderColor;
+	}
+
+	&[disabled=disabled],
+	&:disabled,
+	&.disabled {
+
+		background: $buttonDisabledBg;
+		color: $buttonDisabledColor;
+		border-color: $buttonDisabledBorderColor;
+		cursor: default;
+
+		&:focus,
+		&:hover,
+		&:active {
+				background: $buttonDisabledBg;
+				color: $buttonDisabledColor;
+				border-color: $buttonDisabledBorderColor;
+			}
+	}
+
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ targeting*/
+
+	button.button,
+	input[type="reset"].button,
+	input[type="button"].button,
+	input[type="submit"].button {
+		&:active {
+			left: -1px;
+			//top: -1px;
+			padding: 1px 6px 3px;
+			border-width: 1px;
+			margin: 0;
+			outline: 0 none;
+
+			&:disabled {
+				left: 0;
+				top: 0;
+				padding: 2px 6px;
+			}
+		}
+	}
+}
+
+
+.button::-moz-focus-inner {
+	border: none;
+	padding: 0;
+}
+
+
